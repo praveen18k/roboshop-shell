@@ -35,8 +35,29 @@ VALIDATE(){
     fi
 }
 
-yum install git -y &>> $LOGFILE
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
-VALIDATE $? "Installation of Git"
+VALIDATE $? "Copied MongoDB repo into yum.repos.d"
+
+yum install mongodb-org -y &>> $LOGFILE
+
+VALIDATE $?  "Installed Mongo DB"
+
+systemctl enable mongod &>> $LOGFILE
+
+VALIDATE $? "Enabling Mongo DB"
+
+systemctl start mongod &>> $LOGFILE
+
+VALIDATE $? "Starting Mongo DB"
+
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>> $LOGFILE
+
+VALIDATE $? "Edited Mongo DB conf file"
+
+systemctl restart mongod &>> $LOGFILE
+
+VALIDATE $? " Restarted Mongo DB" 
+
 
     
