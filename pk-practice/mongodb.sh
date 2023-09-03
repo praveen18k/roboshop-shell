@@ -21,7 +21,7 @@ Y="\e[33"
 
 if [ $USERID -ne 0 ];
 then
-    echo -e " $Y ERROR: Install with root access $N "
+    echo -e "$Y ERROR: Install with root access $N"
     exit 1
 fi
 
