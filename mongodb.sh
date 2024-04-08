@@ -20,9 +20,33 @@ fi
 Validation() {
     if [ $1 -ne 0 ]
     then 
-        echo -e "$2...$R failure $N"
+        echo -e "$2...$R Failure $N"
         exit 1
     else
-        echo -e "$2...$G success $N"
+        echo -e "$2...$G Success $N"
     fi
 }
+
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
+
+Validation $? "Copied mongo repo into yum.repos.d"
+
+yum install mongodb-org -y &>>$LOGFILE
+
+Validation $? "Installing mongodb"
+
+systemctl enable mongod &>>$LOGFILE
+
+Validation $? "Enabling mongodb"
+
+systemctl start mongod &>>$LOGFILE
+
+Validation $? "Starting mongodb"
+
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$LOGFILE
+
+Validation $? "Editing mongod.conf file"
+
+systemctl restart mongod
+
+Validation $? "Restarting mongodb"
