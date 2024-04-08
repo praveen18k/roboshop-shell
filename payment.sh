@@ -43,7 +43,7 @@ cd /app &>>$LOGFILE
 
 Validation $? "Moving into app directory"
 
-#unzip /tmp/payment.zip &>>$LOGFILE
+unzip /tmp/payment.zip &>>$LOGFILE
 
 Validation $? "Unzipping payment"
 
