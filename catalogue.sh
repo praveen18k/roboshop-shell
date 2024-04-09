@@ -87,6 +87,6 @@ yum install mongodb-org-shell -y &>>$LOGFILE
 
 validations $?" Installing mongodb client"
 
-mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js &>>$LOGFILE
+mongo --host 172.31.33.55 </app/schema/catalogue.js &>>$LOGFILE
 
 validations $? "Loading catalogue data into mongodb" 
