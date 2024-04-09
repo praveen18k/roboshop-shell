@@ -44,7 +44,7 @@ useradd roboshop &>>$LOGFILE
 #Write a condition to check directory already exist or not
 mkdir -o /app &>>$LOGFILE
 
-#validations $? "App directory creation"
+validations $? "App directory creation"
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
 
