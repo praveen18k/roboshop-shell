@@ -42,7 +42,7 @@ useradd roboshop &>>$LOGFILE
 #validations $? "Adding user"
 
 #Write a condition to check directory already exist or not
-mkdir -o /app &>>$LOGFILE
+mkdir /app &>>$LOGFILE
 
 validations $? "App directory creation"
 
