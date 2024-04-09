@@ -42,14 +42,7 @@ useradd roboshop &>>$LOGFILE
 #validations $? "Adding user"
 
 #Write a condition to check directory already exist or not
-DIR="/home/centos/roboshop-shell"
-if [ -d "$DIR" ]; then
-   echo "$DIR' found"
-   exit 1
-else
-   echo "Warning: '$DIR' NOT found."
-   mkdir /app &>>$LOGFILE
-fi
+mkdir /app &>>$LOGFILE
 
 validations $? "App directory creation"
 
