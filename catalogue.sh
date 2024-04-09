@@ -31,7 +31,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOGFILE
 
 validations $? "Setting up NPM source"
 
-yum -o install nodejs -y &>>$LOGFILE
+yum install nodejs -y &>>$LOGFILE
 
 validations $? "Installing nodejs"
 
@@ -42,7 +42,7 @@ useradd roboshop &>>$LOGFILE
 #validations $? "Adding user"
 
 #Write a condition to check directory already exist or not
-mkdir /app &>>$LOGFILE
+mkdir -o /app &>>$LOGFILE
 
 #validations $? "App directory creation"
 
