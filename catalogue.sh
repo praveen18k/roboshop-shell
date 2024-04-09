@@ -42,7 +42,7 @@ useradd roboshop &>>$LOGFILE
 #validations $? "Adding user"
 
 #Write a condition to check directory already exist or not
-DIR="/home/centos/app"
+DIR="/home/centos/roboshop-shell/app"
 if [ -d "$DIR" ]; then
    echo "$DIR' found"
    exit 1
