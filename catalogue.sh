@@ -58,7 +58,7 @@ unzip /tmp/catalogue.zip &>>$LOGFILE
 
 validations $? "Unzipping catalogue files"
 
-npm install &>>$LOGFILE
+npm install -y &>>$LOGFILE
 
 validations $? "Installing dependencies"
 
